@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Empowerment Tarot Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🔮 Choose Your Destiny!</h1>
+    <div class="card-wrapper">
+      <div class="card" onclick="startQuiz(1)">
+        <img src="/images/Phone Woman.PNG" alt="Mystic Tarot">
+      </div>
+      <div class="card" onclick="startQuiz(2)">
+        <img src="/images/Headset Woman.PNG" alt="Mystic Tarot">
+      </div>
+      <div class="card" onclick="startQuiz(3)">
+        <img src="/images/Laptop Woman.PNG" alt="Mystic Tarot">
+      </div>
+    </div>
+
+    <div id="question-area" style="display: none;"></div>
+    <div id="result-area" style="display: none;"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
