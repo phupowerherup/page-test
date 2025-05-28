@@ -515,8 +515,8 @@ function showResult() {
   `;
 
   resultArea.innerHTML = resultMsg;
-  
- const pages = [
+
+  const pages = [
     { name: 'Opportunities', link: '/opportunities.html' },
     { name: 'Discussion Forum', link: '/forum.html' },
     { name: 'Learning', link: '/learning.html' },
@@ -529,7 +529,6 @@ function showResult() {
   redirectBtn.onclick = () => window.location.href = chosen.link;
 
   resultArea.appendChild(redirectBtn);
-
 }
 
 function shuffle(arr) {
