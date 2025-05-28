@@ -528,8 +528,7 @@ const redirectBtn = document.createElement('button');
 redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
 
 redirectBtn.onclick = () => {
-  // Send message to Wix parent frame
-  window. parent.postMessage({ wixPage: chosen.link }, '*');
+  window.parent.postMessage({ wixPage: chosen.link }, '*');
 };
 
 const resultArea = document.getElementById('resultArea');
