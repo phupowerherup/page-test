@@ -516,19 +516,25 @@ function showResult() {
 
   resultArea.innerHTML = resultMsg;
 
- const pages = [
-    { name: 'Opportunities', link: '/opportunities.html' },
-    { name: 'Discussion Forum', link: '/forum.html' },
-    { name: 'Learning', link: '/learning.html' },
-    { name: 'Scholarships', link: '/mentorship.html' },
-  ];
+const pages = [
+  { name: 'Opportunities', link: 'opportunities' },
+  { name: 'Discussion Forum', link: 'forum' },
+  { name: 'Learning', link: 'learning' },
+  { name: 'Scholarships', link: 'mentorship' },
+];
 
-  const chosen = pages[Math.floor(Math.random() * pages.length)];
-  const redirectBtn = document.createElement('button');
-  redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
-  redirectBtn.onclick = () => window.location.href = chosen.link;
+const chosen = pages[Math.floor(Math.random() * pages.length)];
+const redirectBtn = document.createElement('button');
+redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
 
-  resultArea.appendChild(redirectBtn);
+redirectBtn.onclick = () => {
+  // Send message to Wix parent frame
+  window.parent.postMessage({ wixPage: chosen.link }, '*');
+};
+
+const resultArea = document.getElementById('resultArea');
+resultArea.appendChild(redirectBtn);
+
 }
 
 function shuffle(arr) {
