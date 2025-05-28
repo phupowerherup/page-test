@@ -515,6 +515,7 @@ function showResult() {
   `;
 
   resultArea.innerHTML = resultMsg;
+  
   const pages = [
     { name: 'Opportunities', link: '/opportunities.html' },
     { name: 'Discussion Forum', link: '/forum.html' },
