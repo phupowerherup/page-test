@@ -527,7 +527,12 @@ function showResult() {
   const redirectBtn = document.createElement('button');
   redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
   redirectBtn.onclick = () => window.location.href = chosen.link;
-
+  
+// Send message to Wix instead of redirecting within GitHub Page
+redirectBtn.onclick = () => {
+  window.parent.postMessage({ wixPage: chosen.link }, '*');
+};
+  
   resultArea.appendChild(redirectBtn);
 }
 
