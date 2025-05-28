@@ -528,9 +528,12 @@ const redirectBtn = document.createElement('button');
 redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
 
 redirectBtn.onclick = () => {
-  window.parent.postMessage({ wixPage: chosen.link }, 'https://www.powerherup.com.au');
+  // Send a message to the parent window (Wix Studio)
+  window.parent.postMessage({ wixPage: chosen.link }, '*');
 };
-  
+
+const resultArea = document.getElementById('resultArea');
+if (resultArea) {
   resultArea.appendChild(redirectBtn);
 }
 
