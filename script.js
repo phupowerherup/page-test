@@ -516,24 +516,18 @@ function showResult() {
 
   resultArea.innerHTML = resultMsg;
 
-const pages = [
-  { name: 'Opportunities', link: 'opportunities' },
-  { name: 'Discussion Forum', link: 'forum' },
-  { name: 'Learning', link: 'learning' },
-  { name: 'Scholarships', link: 'mentorship' },
-];
+ const pages = [
+    { name: 'Opportunities', link: '/opportunities.html' },
+    { name: 'Discussion Forum', link: '/forum.html' },
+    { name: 'Learning', link: '/learning.html' },
+    { name: 'Scholarships', link: '/mentorship.html' },
+  ];
 
-const chosen = pages[Math.floor(Math.random() * pages.length)];
-const redirectBtn = document.createElement('button');
-redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
+  const chosen = pages[Math.floor(Math.random() * pages.length)];
+  const redirectBtn = document.createElement('button');
+  redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
+  redirectBtn.onclick = () => window.location.href = chosen.link;
 
-redirectBtn.onclick = () => {
-  // Send a message to the parent window (Wix Studio)
-  window.parent.postMessage({ wixPage: chosen.link }, '*');
-};
-
-const resultArea = document.getElementById('resultArea');
-if (resultArea) {
   resultArea.appendChild(redirectBtn);
 }
 
