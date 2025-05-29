@@ -514,21 +514,26 @@ function showResult() {
     </div>
   `;
 
-  resultArea.innerHTML = resultMsg;
+resultArea.innerHTML = resultMsg;
 
-  const pages = [
-    { name: 'Opportunities', link: '/opportunities.html' },
-    { name: 'Discussion Forum', link: '/forum.html' },
-    { name: 'Learning', link: '/learning.html' },
-    { name: 'Scholarships', link: '/mentorship.html' },
-  ];
+const pages = [
+  { name: 'Opportunities', link: '/opportunities' },
+  { name: 'Discussion Forum', link: '/forum' },
+  { name: 'Learning', link: '/learning' },
+  { name: 'Scholarships', link: '/mentorship' },
+];
 
-  const chosen = pages[Math.floor(Math.random() * pages.length)];
-  const redirectBtn = document.createElement('button');
-  redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
-  redirectBtn.onclick = () => window.location.href = chosen.link;
+const chosen = pages[Math.floor(Math.random() * pages.length)];
+const redirectBtn = document.createElement('button');
+redirectBtn.textContent = `Go to ${chosen.name} ➡️`;
 
-  resultArea.appendChild(redirectBtn);
+// 🔁 Send message to Wix Studio to trigger redirect
+redirectBtn.onclick = () => {
+  window.parent.postMessage({ wixPage: chosen.link }, '*');
+};
+
+resultArea.appendChild(redirectBtn);
+
 }
 
 function shuffle(arr) {
